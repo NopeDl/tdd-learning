@@ -14,10 +14,20 @@ public class CalculatorTest {
     private Calculator calculator;
 
     @Test
-    @DisplayName("入参大于0，计算其减1的值并返回")
-    public void givenGreaterThan0() {
-        int input = RandomUtil.randomInt(1, 10);
+    @DisplayName("入参大于等于100，计算其减1的值并返回")
+    public void givenGreaterThan100() {
+        int input = RandomUtil.randomInt(100, Integer.MAX_VALUE);
         int expect = input - 1;
+
+        int actual = calculator.calculate(input);
+        Assertions.assertEquals(expect, actual);
+    }
+
+    @Test
+    @DisplayName("入参大于0且小于100，返回平方值")
+    public void givenGreaterThan0AndLowerThan100() {
+        int input = RandomUtil.randomInt(1, 100);
+        int expect = input * input;
 
         int actual = calculator.calculate(input);
         Assertions.assertEquals(expect, actual);
