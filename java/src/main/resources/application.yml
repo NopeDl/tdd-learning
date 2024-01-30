@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: tdd-learning
+server:
+  port: 8080
